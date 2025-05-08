@@ -24,3 +24,4 @@ if (validateMandatoryParams($data, ['name', 'health', 'attack', 'defense'])) {
 } else {
     returnError(412, 'Mandatory parameters : name, health, attack, defense');
 }
+
