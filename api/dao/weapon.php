@@ -12,7 +12,7 @@ function findOneWeapon(string $id) {
     return null;
 }
 
-function findAllVWeapon (string $type = "", int $limit = 10, int $offset = 0) {
+function findAllWeapons (string $type = "", int $limit = 10, int $offset = 0) {
     $db = getDatabaseConnection();
     $params = [];
     $sql = "SELECT id, type, damage FROM weapon";
