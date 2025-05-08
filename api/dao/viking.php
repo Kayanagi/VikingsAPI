@@ -61,3 +61,32 @@ function deleteViking(string $id) {
     }
     return null;
 }
+
+function getVikingsByWeaponId($Id) {
+    $db = getDatabaseConnection();
+    $sql = "SELECT id, name FROM viking WHERE weaponId = ?";
+    $stmt = $db->prepare($sql);
+    $res = $stmt->execute([$Id]);
+    if ($res) {
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    return null;
+}
+
+
+
+function getVikingById($id) {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT id, name FROM viking WHERE id = ?");
+    $stmt->execute([$id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function addWeaponToViking(string $vikingId, int $weaponId) {
+    $db = getDatabaseConnection();
+    $sql = "UPDATE viking SET weaponId = :weaponId WHERE id = :vikingId";
+    $stmt = $db->prepare($sql);
+    $res = $stmt->execute(["vikingId" => $vikingId, "weaponId" => $weaponId]);
+    return $res ? $stmt->rowCount() : null;
+}
+

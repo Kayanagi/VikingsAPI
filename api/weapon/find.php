@@ -9,11 +9,24 @@ if (!methodIsAllowed('read')) {
     return;
 }
 
-$limit = isset($_GET['limit']) ? intval($_GET['limit']) : 10;
-$offset = isset($_GET['offset']) ? intval($_GET['offset']) : 0;
-
-$weapons = findAllWeapons($limit, $offset);
-if (!$weapons) {
-    $weapons = [];
+$type = '';
+$limit = 10;
+$offset = 0;
+if (isset($_GET['type'])) {
+    $type = trim($_GET['type']);
 }
+if (isset($_GET['limit'])) {
+    $limit = intval($_GET['limit']);
+    if ($limit < 1) {
+        returnError(400, 'Limit must be a positive and non zero number');
+    }
+    if (isset($_GET['offset'])) {
+        $offset = intval($_GET['offset']);
+        if ($offset < 0) {
+            returnError(400, 'Offset must be a positive number');
+        }
+    }
+}
+
+$weapons = findAllWeapons($type, $limit, $offset);
 echo json_encode($weapons);

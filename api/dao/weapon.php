@@ -1,5 +1,4 @@
 <?php
-
 require_once $_SERVER['DOCUMENT_ROOT'] . '/api/utils/database.php';
 
 function findOneWeapon(string $id) {
@@ -29,7 +28,6 @@ function findAllVWeapon (string $type = "", int $limit = 10, int $offset = 0) {
     }
     return null;
 }
-
 function createWeapon(string $type, int $damage) {
     $db = getDatabaseConnection();
     $sql = "INSERT INTO weapon (type, damage) VALUES (:type, :damage)";

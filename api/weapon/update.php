@@ -19,7 +19,7 @@ if (!isset($_GET['id'])) {
 $id = intval($_GET['id']);
 
 if (validateMandatoryParams($data, ['type', 'damage'])) {
-    verifyViking($data);
+    verifyWeapon($data);
 
     $updated = updateWeapon($id, $data['type'], $data['damage']);
     if ($updated == 1) {
