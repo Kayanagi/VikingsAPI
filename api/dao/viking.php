@@ -76,8 +76,9 @@ function getVikingsByWeaponId($Id) {
 
 
 function getVikingById($id) {
-    global $pdo;
-    $stmt = $pdo->prepare("SELECT id, name FROM viking WHERE id = ?");
+    $db = getDatabaseConnection();
+    $sql = "SELECT id, name FROM viking WHERE id = ?";
+    $stmt = $db->prepare($sql);
     $stmt->execute([$id]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
@@ -90,3 +91,10 @@ function addWeaponToViking(string $vikingId, int $weaponId) {
     return $res ? $stmt->rowCount() : null;
 }
 
+function getWeaponById($id) {
+    $db = getDatabaseConnection();
+    $sql = "SELECT id, type FROM weapon WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
