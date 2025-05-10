@@ -87,7 +87,10 @@ function addWeaponToViking(string $vikingId, int $weaponId) {
     $db = getDatabaseConnection();
     $sql = "UPDATE viking SET weaponId = :weaponId WHERE id = :vikingId";
     $stmt = $db->prepare($sql);
-    $res = $stmt->execute(["vikingId" => $vikingId, "weaponId" => $weaponId]);
+    $res = $stmt->execute([
+        "vikingId" => $vikingId,
+        "weaponId" => $weaponId
+    ]);
     return $res ? $stmt->rowCount() : null;
 }
 

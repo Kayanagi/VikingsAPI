@@ -5,7 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/api/dao/weapon.php';
 
 header('Content-Type: application/json');
 
-if (!methodIsAllowed('find')) {
+if (!methodIsAllowed('read')) {
     returnError(405, 'Method not allowed');
     return;
 }

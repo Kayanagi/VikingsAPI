@@ -30,5 +30,5 @@ if (validateMandatoryParams($data, ['type', 'damage'])) {
         returnError(500, 'Could not update the weapon');
     }
 } else {
-    returnError(412, 'Mandatory parameters : type, damage');;
+    returnError(412, 'Mandatory parameters : type, damage');
 }
