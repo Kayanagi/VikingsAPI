@@ -1,5 +1,13 @@
 # TP Vikings
 
+DELORD Wesley
+BEN OTHMAN Mahmoud
+ELENGA Godgiven
+
+Wesley s'occupait des test postman en faisant une collection de 2 dossier avec un environnement
+Wesley et mahmoud on fait une grande partie du projet ensemble et on travaillé tout les deux sur l'élaboration de addWeapon
+Godgiven à rejoint le groupe plus et à aider wesley et mahmoud sur findbyweapon
+
 ## Modalités
 
 Ce TP est à faire par **groupes de 3**.
